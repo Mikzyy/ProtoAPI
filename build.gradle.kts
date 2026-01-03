@@ -1,6 +1,5 @@
 plugins {
     java
-    id("xyz.jpenilla.run-paper") version "2.3.1"
     `maven-publish`
 }
 
@@ -16,7 +15,7 @@ java {
 repositories {
     mavenCentral()
     maven {
-        name = "papermc-repo"
+        name = "papermc"
         url = uri("https://repo.papermc.io/repository/maven-public/")
     }
 }
@@ -47,18 +46,5 @@ publishing {
             artifact(sourcesJar.get())
             artifact(javadocJar.get())
         }
-    }
-}
-
-tasks.named<xyz.jpenilla.runpaper.task.RunServer>("runServer") {
-    minecraftVersion("1.21")
-}
-
-tasks.processResources {
-    val props = mapOf("version" to project.version)
-    inputs.properties(props)
-    filteringCharset = "UTF-8"
-    filesMatching("plugin.yml") {
-        expand(props)
     }
 }
