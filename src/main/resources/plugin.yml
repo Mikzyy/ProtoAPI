@@ -1,0 +1,4 @@
+name: ProtoAPI
+version: '1.0'
+main: me.Mikzyy.protoAPI.ProtoAPI
+api-version: '1.21'
